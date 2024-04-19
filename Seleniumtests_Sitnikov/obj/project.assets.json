@@ -881,11 +881,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Test course\\SeleniumTestForPractice_Sitnikov-master\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj",
+      "projectUniqueName": "D:\\Test course\\Selenium HW\\SeleniumTestForPractice_Sitnikov\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj",
       "projectName": "Seleniumtests_Sitnikov",
-      "projectPath": "D:\\Test course\\SeleniumTestForPractice_Sitnikov-master\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj",
+      "projectPath": "D:\\Test course\\Selenium HW\\SeleniumTestForPractice_Sitnikov\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj",
       "packagesPath": "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\",
-      "outputPath": "D:\\Test course\\SeleniumTestForPractice_Sitnikov-master\\Seleniumtests_Sitnikov\\obj\\",
+      "outputPath": "D:\\Test course\\Selenium HW\\SeleniumTestForPractice_Sitnikov\\Seleniumtests_Sitnikov\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Oleg Sitnikov\\AppData\\Roaming\\NuGet\\NuGet.Config"

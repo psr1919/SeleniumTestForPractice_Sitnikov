@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "96DwbGJBuevKCLCMKPI9Ury9sDbxH1RnpXnMvJcQvKgQKcdIh+W0PIHV/V7LFcVSShYnlYFOUTxsEvd9FPkv9g==",
+  "dgSpecHash": "NpROd1AIG4Mxys9E4DSc4IT7AlaA1k4PRuNeL43DDzqZ40B8MM+/l0aL2tWwmicg3oJoURjqz/oWbUqaC2+aJg==",
   "success": true,
-  "projectFilePath": "D:\\Test course\\SeleniumTestForPractice_Sitnikov-master\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj",
+  "projectFilePath": "D:\\Test course\\Selenium HW\\SeleniumTestForPractice_Sitnikov\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\fluentassertions\\7.0.0-alpha.3\\fluentassertions.7.0.0-alpha.3.nupkg.sha512",
     "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\microsoft.codecoverage\\17.9.0\\microsoft.codecoverage.17.9.0.nupkg.sha512",

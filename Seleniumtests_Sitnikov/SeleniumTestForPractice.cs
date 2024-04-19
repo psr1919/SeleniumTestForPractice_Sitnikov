@@ -22,7 +22,7 @@ public class SeleniumTestForPractice
         options.AddArguments("--no-sandbox", "--start-maximized", "--disable-extensions");
         driver = new ChromeDriver(options);
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(4);
-        wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
+        wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3));
         MethodAuthorization();
     }
 
