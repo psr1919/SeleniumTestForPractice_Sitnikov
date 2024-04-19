@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Test course\\selenium tests\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj": {}
+    "D:\\Test course\\SeleniumTestForPractice_Sitnikov-master\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj": {}
   },
   "projects": {
-    "D:\\Test course\\selenium tests\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj": {
+    "D:\\Test course\\SeleniumTestForPractice_Sitnikov-master\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Test course\\selenium tests\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj",
+        "projectUniqueName": "D:\\Test course\\SeleniumTestForPractice_Sitnikov-master\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj",
         "projectName": "Seleniumtests_Sitnikov",
-        "projectPath": "D:\\Test course\\selenium tests\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj",
+        "projectPath": "D:\\Test course\\SeleniumTestForPractice_Sitnikov-master\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj",
         "packagesPath": "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\",
-        "outputPath": "D:\\Test course\\selenium tests\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov\\obj\\",
+        "outputPath": "D:\\Test course\\SeleniumTestForPractice_Sitnikov-master\\Seleniumtests_Sitnikov\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Oleg Sitnikov\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,6 +38,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[7.0.0-alpha.3, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.9.0, )"
@@ -49,6 +53,10 @@
             "Selenium.WebDriver": {
               "target": "Package",
               "version": "[4.19.0, )"
+            },
+            "SeleniumExtras.WaitHelpers": {
+              "target": "Package",
+              "version": "[1.0.2, )"
             }
           },
           "imports": [

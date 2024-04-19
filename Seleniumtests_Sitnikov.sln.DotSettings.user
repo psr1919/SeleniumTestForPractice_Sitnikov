@@ -1,4 +1,20 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d35e6562_002D21b8_002D4123_002Da444_002D5c65badab49d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=43907f40_002Db856_002D4274_002Dafd5_002D1f34773219ed/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="testName" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=89be8cfe_002D2d6e_002D4138_002D839a_002D60a92346a152/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DeleteNewCommunity" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::EBBD5156-7C8D-4A70-AD88-20FF6A7175B8::net8.0::Seleniumtests_Sitnikov.SeleniumTestForPractice.DeleteNewCommunity&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::EBBD5156-7C8D-4A70-AD88-20FF6A7175B8::net8.0::Seleniumtests_Sitnikov.SeleniumTestForPractice.CreateNewCommunity&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=97ba07f6_002Df827_002D498c_002Da227_002Dcdc7880f199a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DeleteNewCommunity #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::EBBD5156-7C8D-4A70-AD88-20FF6A7175B8::net8.0::Seleniumtests_Sitnikov.SeleniumTestForPractice.DeleteNewCommunity&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::EBBD5156-7C8D-4A70-AD88-20FF6A7175B8::net8.0::Seleniumtests_Sitnikov.SeleniumTestForPractice.CreateNewCommunity&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c6f8c847_002D34d9_002D47a8_002D9c1d_002Dda57cb901e9d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CreateNewCommunity" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	</wpf:ResourceDictionary>

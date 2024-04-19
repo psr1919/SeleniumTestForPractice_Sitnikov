@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7rRxlKgbiCk6wYyxHyJdRsNaglEbEyi1I69OphS7XwvwuBcJ0WVl1/o8ran+FgUs0EQ0HucV1f6rpJqenz8ntw==",
+  "dgSpecHash": "96DwbGJBuevKCLCMKPI9Ury9sDbxH1RnpXnMvJcQvKgQKcdIh+W0PIHV/V7LFcVSShYnlYFOUTxsEvd9FPkv9g==",
   "success": true,
-  "projectFilePath": "D:\\Test course\\selenium tests\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj",
+  "projectFilePath": "D:\\Test course\\SeleniumTestForPractice_Sitnikov-master\\Seleniumtests_Sitnikov\\Seleniumtests_Sitnikov.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\fluentassertions\\7.0.0-alpha.3\\fluentassertions.7.0.0-alpha.3.nupkg.sha512",
     "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\microsoft.codecoverage\\17.9.0\\microsoft.codecoverage.17.9.0.nupkg.sha512",
     "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\microsoft.net.test.sdk\\17.9.0\\microsoft.net.test.sdk.17.9.0.nupkg.sha512",
     "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.9.0\\microsoft.testplatform.objectmodel.17.9.0.nupkg.sha512",
@@ -11,7 +12,10 @@
     "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\nunit\\4.1.0\\nunit.4.1.0.nupkg.sha512",
     "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\selenium.webdriver\\4.19.0\\selenium.webdriver.4.19.0.nupkg.sha512",
-    "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
+    "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\seleniumextras.waithelpers\\1.0.2\\seleniumextras.waithelpers.1.0.2.nupkg.sha512",
+    "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.0\\system.configuration.configurationmanager.4.4.0.nupkg.sha512",
+    "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
+    "C:\\Users\\Oleg Sitnikov\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.4.0\\system.security.cryptography.protecteddata.4.4.0.nupkg.sha512"
   ],
   "logs": []
 }
