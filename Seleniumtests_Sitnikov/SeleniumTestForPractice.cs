@@ -23,123 +23,138 @@ public class SeleniumTestForPractice
         driver = new ChromeDriver(options);
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(4);
         wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3));
-        MethodAuthorization();
+        Authorize();
     }
 
     [Test]
     // Проверить переход в раздел "Сообщества" через боковое меню
-    public void SideMenuCommunityButton()
+    public void sideMenuCommunityButton()
     {
         driver.Manage().Window.Size = new Size(1200, 600);
         
         // 1. Переходим в раздел "Сообщества"
-        var SideMenu = driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
-        SideMenu.Click();
-        var CommunityButton = driver.FindElements(By.CssSelector("[data-tid='Community']"))[1];
-        CommunityButton.Click();
+        var sideMenu = driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
+        sideMenu.Click();
+        var communityButton = driver.FindElements(By.CssSelector("[data-tid='Community']"))[1];
+        communityButton.Click();
         
         // 2. Проверяем что переход совершен
-        
-        driver.FindElement(By.CssSelector("[data-tid='Title']")).Text.Should().Be("Сообщества");
+        var communitySectionTitleText = driver.FindElement(By.CssSelector("[data-tid='Title']")).Text;
+        communitySectionTitleText.Should().Be("Сообщества");
     }
 
     [Test]
     // Проверить создание нового сообщества
     
-    public void CreateNewCommunity()
+    public void createNewCommunity()
     
     {
         // 1. Переходим в меню сообществ
-        SideMenuCommunityButton();
+        sideMenuCommunityButton();
         
         // 2. Создаём новое сообщество
-        var NewCommunityButton = driver.FindElement(By.CssSelector("[class='sc-juXuNZ sc-ecQkzk WTxfS vPeNx']"));
-        NewCommunityButton.Click();
-        var TypeCommunityName = driver.FindElement(By.CssSelector("[data-tid='Name']"));
-        TypeCommunityName.SendKeys("Тест создания сообщества");
-        var CreateCommunity = driver.FindElement(By.CssSelector("[data-tid='CreateButton']"));
-        CreateCommunity.Click();
-        var CloseSettingsButton = driver.FindElement(By.CssSelector("[class='sc-juXuNZ kVHSha']"));
-        CloseSettingsButton.Click();
+        var newCommunityButton = driver.FindElements(By.TagName("button"))[3];
+        newCommunityButton.Click();
         
-        // 3. Проверяем, что сообщество создано
-        driver.FindElement(By.CssSelector("[data-tid='Title']")).Text.Should().Be("Тест создания сообщества");
+        // 3. Генерируем имя
+        var typeCommunityName = driver.FindElement(By.CssSelector("[data-tid='Name']"));
+        var communityName = Guid.NewGuid().ToString("N");
+        typeCommunityName.SendKeys(communityName);
+        
+        // 4. Сохраняем сообщество
+        var createCommunity = driver.FindElement(By.CssSelector("[data-tid='CreateButton']"));
+        createCommunity.Click();
+        var closeSettingsButton = driver.FindElements(By.TagName("button"))[4];
+        closeSettingsButton.Click();
+        
+        // 5. Проверяем, что сообщество создано
+        driver.Navigate().GoToUrl("https://staff-testing.testkontur.ru/communities?activeTab=isAdministrator");
+        var communitiesCounter = driver.FindElement(By.CssSelector("[data-tid='CommunitiesCounter']")).Text;
+        communitiesCounter.Should().Be("1 сообщество");
     }
 
     [Test]
-    // Проверить возможность удаления последнего участника (себя) из сообщества
+    // Добавляем новый комментарий жирным шрифтом в ленту сообщества
 
-    public void DeleteLastMember()
+    public void addNewComment()
     {
-        // 1. Переходим в настройки сообщества
-        MethodCommunitySettings();
+        // 1. Переходим в сообщество
+        openMyCommunity();
         
-        // 2. Переходим на вкладку "Модераторы"
-        var CommunityAdmins = driver.FindElement(By.CssSelector("[data-tid='Managers']"));
-        CommunityAdmins.Click();
+        // 2. Создаём комментарий
+        var writeComment = driver.FindElement(By.CssSelector("[data-tid='AddButton']"));
+        writeComment.Click();
+        var commentContent = driver.FindElement(By.CssSelector("[role='textbox']"));
+        commentContent.SendKeys("Автотесты - это уважаемо");
         
-        // 3. Пробуем удалить последнего участника
-        try
-        {
-            var DeleteMemberButton = driver.FindElement(By.CssSelector("[data-tid='Delete']"));
-            DeleteMemberButton.Click();
-            var AcceptDeleteMember = driver.FindElement(By.ClassName("react-ui-17axm2e"));
-            AcceptDeleteMember.Click();
-        }
-        catch (Exception e)
-        {
-            Assert.Fail("You cannot delete last member, test passed");
-        }
+        // 3. Выделяем и применяем жирное начертание к тексту
+        commentContent.SendKeys(Keys.Control+"A");
+        var boldFont = driver.FindElements(By.CssSelector("[class='RichEditor-styleButton']"))[4];
+        boldFont.Click();
+        
+        // 4. Сохраняем комментарий
+        var saveCommentButton = driver.FindElement(By.CssSelector("[data-tid='SendButton']"));
+        saveCommentButton.Click();
+        wait.Until(ExpectedConditions.ElementExists(By.CssSelector("[data-tid='NewsText']")));
+        
+        // 5. Проверяем наличие комментария в ленте
+        var CommentText = driver.FindElement(By.CssSelector("[data-tid='NewsText']")).Text;
+        CommentText.Should().Be("Автотесты - это уважаемо");
     }
     
     [Test]
     // Проверить удаление сообщества
 
-    public void DeleteNewCommunity()
+    public void deleteNewCommunity()
     {
         // 1. Переходим в настройки сообщества
-        MethodCommunitySettings();
+        openMyCommunity();
+        var dropDownList = driver.FindElements(By.CssSelector("[data-tid='DropdownButton']"))[1];
+        dropDownList.Click();
+        wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='Settings']")));
+        var enterSettings = driver.FindElement(By.CssSelector("[data-tid='Settings']"));
+        enterSettings.Click();
         
         // 2. Удаляем сообщество
-        var DeleteCommunity = driver.FindElement(By.CssSelector("[data-tid='DeleteButton']"));
-        DeleteCommunity.Click();
-        var AcceptDelete = driver.FindElement(By.ClassName("react-ui-aivml8"));
-        AcceptDelete.Click();
+        var deleteCommunity = driver.FindElement(By.CssSelector("[data-tid='DeleteButton']"));
+        deleteCommunity.Click();
+        var acceptDelete = driver.FindElement(By.ClassName("react-ui-aivml8"));
+        acceptDelete.Click();
         
         // 3. Проверяем удаление сообщества
         driver.Navigate().GoToUrl("https://staff-testing.testkontur.ru/communities?activeTab=isAdministrator");
-        driver.FindElement(By.CssSelector("[class='sc-bdnxRM sc-jcwpoC sc-carFqZ eYSGDY hqvkmw']")).Text.Should()
-            .Be("Поэтому показали вам котика");
+        var emptyCommunityPageHolder = driver.FindElement(By.CssSelector("[data-tid='Feed']")).Text;
+        emptyCommunityPageHolder.Should().Be("Подходящих сообществ нет\r\nПоэтому показали вам котика");
     }
 
     [Test]
     // Проверить невозможность сохранения дополнительного email на кириллице
     
-    public void SavingAdditionalEmailInCyrillic()
+    public void savingAdditionalEmailInCyrillic()
     {
         // 1. Переходим в раздел "Редактирование профиля"
-        var ProfilePopupMenuButton = driver.FindElement(By.CssSelector("[data-tid='PopupMenu__caption']"));
-        ProfilePopupMenuButton.Click();
-        var ProfileSettingsButton = driver.FindElement(By.CssSelector("[data-tid='ProfileEdit']"));
-        ProfileSettingsButton.Click();
+        var profilePopupMenuButton = driver.FindElement(By.CssSelector("[data-tid='PopupMenu__caption']"));
+        profilePopupMenuButton.Click();
+        var profileSettingsButton = driver.FindElement(By.CssSelector("[data-tid='ProfileEdit']"));
+        profileSettingsButton.Click();
 
         // 2. Вводим дополнительный email на кириллице
-        var AdditionalEmailInput = driver.FindElements(By.ClassName("react-ui-huu6sg"))[1];
-        AdditionalEmailInput.SendKeys("тестовая@почта.рф");
-        AdditionalEmailInput.SendKeys(Keys.PageUp);
+        var additionalEmailInput = driver.FindElements(By.ClassName("react-ui-huu6sg"))[1];
+        additionalEmailInput.SendKeys("тестовая@почта.рф");
+        additionalEmailInput.SendKeys(Keys.PageUp);
         
         // 3. Пробуем сохранить настройки
-        var SaveChanges = driver.FindElement(By.CssSelector("[class='sc-juXuNZ kVHSha']"));
         wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[class='sc-juXuNZ kVHSha']")));
-        SaveChanges.Click();
+        var saveChanges = driver.FindElement(By.CssSelector("[class='sc-juXuNZ kVHSha']"));
+        saveChanges.Click();
         
         // 4. Проверяем наличие сообщения об ошибке
         wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[class='sc-iqAclL gpMmYS']")));
-        driver.FindElement(By.CssSelector("[class='sc-iqAclL gpMmYS']")).Text.Should()
-            .Be("Некорректно заполненны поля: «Дополнительный»");
+        var validationFailedMessage = driver.FindElement(By.CssSelector("[class='sc-iqAclL gpMmYS']")).Text;
+        validationFailedMessage.Should().Be("Некорректно заполненны поля: «Дополнительный»");
     }
 
-    public void MethodCommunitySettings()
+    public void openMyCommunity()
     // Переход на страницу настроек сообщества
     
     {
@@ -148,19 +163,12 @@ public class SeleniumTestForPractice
         
         // 2. Переходим в сообщество
         wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='Link']")));
-        var SelectCreatedCommunity = driver.FindElement(By.CssSelector("[data-tid='Link']"));
-        SelectCreatedCommunity.Click();
+        var selectCreatedCommunity = driver.FindElement(By.CssSelector("[data-tid='Link']"));
+        selectCreatedCommunity.Click();
         wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='Members']")));
-        
-        // 3. Переходим в настройки сообщества
-        var DropDownList = driver.FindElements(By.CssSelector("[data-tid='DropdownButton']"))[1];
-        DropDownList.Click();
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='Settings']")));
-        var EnterSettings = driver.FindElement(By.CssSelector("[data-tid='Settings']"));
-        EnterSettings.Click();
     }
 
-    public void MethodAuthorization()
+    public void Authorize()
     // Авторизация в сервисе
     
     {
